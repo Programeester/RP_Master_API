@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from tortoise.contrib.fastapi import register_tortoise
 from typing import Optional as opt
 from connectToDatabase import connectToDatabase
+from infoClasses import *
 from models import *
 
 app = FastAPI()
@@ -13,6 +14,13 @@ async def start_app():
 @app.get("/")
 async def home():
   return {"online" : True}
+
+@app.post("users/create")
+async def create_user(user : UserInfo):
+  created_user = User.create(user)
+  created_user.save()
+  return f"user {user} created succesfully"
+  
 
 register_tortoise(
   app,
