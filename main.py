@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from tortoise.contrib.fastapi import register_tortoise
 from typing import Optional as opt
-import connectToDatabase
+from connectToDatabase import connectToDatabase
 from models import *
 
 app = FastAPI()
