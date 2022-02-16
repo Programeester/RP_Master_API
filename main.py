@@ -27,7 +27,7 @@ async def create_user(user : UserInfo):
   
   @app.get("/all_users")
   async def all_users():
-    users = [user for user in User.objects.get.all()]
+    users = [user for user in User.all()]
 
 register_tortoise(
   app,
