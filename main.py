@@ -18,12 +18,16 @@ async def home():
 @app.post("/create_user")
 async def create_user(user : UserInfo):
   try:
-    created_user = User.create(user)
+    created_user = User.create(**user)
     created_user.save()
     return {"created" : True}
   except Exception as e:
     return {"error" : e}
+
   
+  @app.get("/all_users")
+  async def all_users():
+    users = [user for user in User.objects.get.all()]
 
 register_tortoise(
   app,
