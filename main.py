@@ -15,11 +15,11 @@ async def start_app():
 async def home():
   return {"online" : True}
 
-@app.post("users/create")
+@app.post("/create_user")
 async def create_user(user : UserInfo):
   created_user = User.create(user)
   created_user.save()
-  return {user: True}
+  return {user : True}
   
 
 register_tortoise(
