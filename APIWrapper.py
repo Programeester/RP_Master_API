@@ -9,5 +9,3 @@ def create_user(user):
 def create_tag(tag):
   response = request.post(url, data=dict(tag))
   return response
-
-def
