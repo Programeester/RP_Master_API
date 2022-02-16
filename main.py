@@ -17,9 +17,12 @@ async def home():
 
 @app.post("/create_user")
 async def create_user(user : UserInfo):
-  created_user = User.create(user)
-  created_user.save()
-  return {user : True}
+  try:
+    created_user = User.create(user)
+    created_user.save()
+    return {"created" : True}
+  except Exception as e:
+    return {"error" : e}
   
 
 register_tortoise(
