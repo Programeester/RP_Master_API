@@ -19,7 +19,7 @@ async def home():
 async def create_user(user : UserInfo):
   created_user = User.create(user)
   created_user.save()
-  return f"user {user} created succesfully"
+  return {user: True}
   
 
 register_tortoise(
